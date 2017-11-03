@@ -4,4 +4,5 @@ public class Individual {
     * [n][0]表示这种形状是否表达
     * [n][1]到[n][8]表示八个基因位
     * */
+
 }
