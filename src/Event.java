@@ -4,18 +4,18 @@ public class Event {
 
         Individual newSon = new Individual();
 
-        for  (int i=0;i<newSon.gean.length;i++){
+        for  (int i = 0; i<newSon.gene.length; i++){
            double choose = Math.random();
             if(choose>=0.5)
-                newSon.gean[i]=a.gean[i];
+                newSon.gene[i]=a.gene[i];
             else
-                newSon.gean[i]=b.gean[i];
+                newSon.gene[i]=b.gene[i];
         }
         /*对每个基因随机选择组合*/
 
         //废弃代码
-        //System.arraycopy(a.gean,0,newSon.gean,0,swichPoint);
-        //System.arraycopy(b.gean,swichPoint,newSon.gean,swichPoint,b.gean.length - swichPoint-1);
+        //System.arraycopy(a.gene,0,newSon.gene,0,swichPoint);
+        //System.arraycopy(b.gene,swichPoint,newSon.gene,swichPoint,b.gene.length - swichPoint-1);
 
         return newSon;
     }
