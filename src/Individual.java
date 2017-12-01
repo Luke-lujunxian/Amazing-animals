@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Individual {
     public boolean gene[][] = new boolean[trait_num][len];
     /*第一维度为每一种形状
@@ -7,6 +9,10 @@ public class Individual {
     public static int len=9;//基因数量
     public static int trait_num=20;//形状数量
 
+
+    public Individual(boolean[][] gene) {
+        this.gene = gene;
+    }
     public static double getMutation() {
         return mutation;
     }
@@ -17,9 +23,7 @@ public class Individual {
 
     public static double mutation=0.01;//变异几率
 
-    public Individual(boolean[][] gene) {
-        this.gene = gene;
-    }
+
     public double getFitness() {
         return fitness;
     }
@@ -29,9 +33,21 @@ public class Individual {
     }
 
     public double fitness=0;//此个体的适应度
-    public static boolean[][] getgene() {
+
+    public static boolean[][] getGene() {
         boolean hhh[][]=new boolean[Individual.trait_num][Individual.len];
         //随机生成基因
+        Random ran=new Random();
+        for (boolean[] x:hhh) {
+            for (boolean y:x) {
+                y = ran.nextBoolean();
+            }
+
+        }
         return hhh;
+    }
+
+    public static void die(Individual a){//自杀
+        a = null;
     }
 }

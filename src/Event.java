@@ -2,7 +2,7 @@ public class Event {
     public Individual reproduc(Individual a,Individual b){
         //int swichPoint = (int)(Math.random()*20);
 
-        Individual newSon = new Individual();
+        Individual newSon = new Individual(Individual.getGene());
 
         for  (int i = 0; i<newSon.gene.length; i++){
            double choose = Math.random();
