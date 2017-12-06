@@ -2,12 +2,12 @@ import java.util.Random;
 
 public class Individual {
     public boolean gene[][] = new boolean[trait_num][len];
-    /*第一维度为每一种形状
+    /*第一维度为每一种性状
     * [n][0]表示这种形状是否表达
     * [n][1]到[n][8]表示八个基因位
     * */
-    public static int len=9;//基因数量
-    public static int trait_num=20;//形状数量
+    public static int len=3;//基因数量
+    public static int trait_num=6;//性状数量
 
 
     public Individual(boolean[][] gene) {
@@ -42,11 +42,12 @@ public class Individual {
             for (boolean y:x) {
                 y = ran.nextBoolean();
             }
-
         }
         return hhh;
     }
+    public static void mutation(boolean[][] gene) {
 
+    }
     public static void die(Individual a){//自杀
         a = null;
     }

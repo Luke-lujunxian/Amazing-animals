@@ -4,7 +4,7 @@ public class Environment {
     }
 
     public void setTemperature(int temperature) {
-        this.temperature = temperature;
+        if(temperature>=-60&&temperature<=100)this.temperature = temperature;
     }
 
     public int getHumidity() {
@@ -12,7 +12,7 @@ public class Environment {
     }
 
     public void setHumidity(int humidity) {
-        this.humidity = humidity;
+       if(humidity>=0&&humidity<=100) this.humidity = humidity;
     }
 
     public int getTerrain() {
@@ -20,7 +20,7 @@ public class Environment {
     }
 
     public void setTerrain(int terrain) {
-        this.terrain = terrain;
+        if(terrain>=1 && terrain<=3)this.terrain = terrain;
     }
 
     public int getOxygenLevel() {
@@ -28,7 +28,7 @@ public class Environment {
     }
 
     public void setOxygenLevel(int oxygenLevel) {
-        this.oxygenLevel = oxygenLevel;
+        if(oxygenLevel>=0 && oxygenLevel<=40)this.oxygenLevel = oxygenLevel;
     }
 
     public int getFood() {
@@ -36,7 +36,7 @@ public class Environment {
     }
 
     public void setFood(int food) {
-        this.food = food;
+        if(food>=1&&food<=8)this.food = food;
     }
 
     int temperature;
