@@ -1,10 +1,10 @@
 public class Main {
-     public static void fitness(Individual a) {
+     public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而暂时是空的
         int i=0;
         int j[]=decode(a.gene);
         //compute fitness
      }
-     public static int[] decode(boolean[][] a) {
+     public static int[] decode(boolean[][] a) {//额……大概是解码
          int[] h=new int[a.length];
          for(int i=0;i<a.length;i++){
              int j=0;
@@ -20,7 +20,7 @@ public class Main {
          }
          return h;
     }
-    public static void main(String args[]){
+    public static void main(String args[]){//暂时没卵用的主方法
        Individual setOfIndividual[] = new Individual[100];
        Environment env1 = new Environment();
     }

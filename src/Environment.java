@@ -1,4 +1,6 @@
 public class Environment {
+
+//  基本的get/set方法
     public int getTemperature() {
         return temperature;
     }
@@ -38,21 +40,23 @@ public class Environment {
     public void setFood(int food) {
         if(food>=1&&food<=8)this.food = food;
     }
+//  get/set结束
 
+//变量定义
     int temperature;
     int humidity;
     int terrain; // 1- water, 2-land, 3-water&land
     int oxygenLevel;
     int food;//[to be finish]
 
-    Environment(int temperature, int humidity, int terrain, int oxygenLevel, int food){
+    Environment(int temperature, int humidity, int terrain, int oxygenLevel, int food){//初始化环境（有参数）
         this.temperature = temperature;
         this.humidity = humidity;
         this.terrain = terrain;
         this. oxygenLevel = oxygenLevel;
         this.food = food;
     }
-    Environment(){
+    Environment(){//初始化环境（默认）
         this.temperature = 20;
         this.humidity = 40;
         this.terrain = 2;
