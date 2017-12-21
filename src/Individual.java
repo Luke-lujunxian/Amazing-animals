@@ -9,10 +9,12 @@ public class Individual {
     public static int len=3;//基因数量
     public static int trait_num=6;//性状数量
 
-//get、set方法
     public Individual(boolean[][] gene) {
         this.gene = gene;
     }
+    public Individual(){}
+    //get、set方法
+
     public static double getMutation() {
         return mutation;
     }
@@ -30,23 +32,34 @@ public class Individual {
 
     public static double mutation=0.01;//变异几率
     public double fitness=0;//此个体的适应度
-
+    static Random ran=new Random();
 
     public static boolean[][] getGene() {//随机生成基因
         boolean hhh[][]=new boolean[Individual.trait_num][Individual.len];
 
-        Random ran=new Random();
-        for (boolean[] x:hhh) {
-            for (boolean y:x) {
-                y = ran.nextBoolean();
+
+        for(int i = 0;i<hhh.length;i++){
+            for (int j = 0; j<hhh[0].length;j++){
+                    hhh[i][j]=ran.nextBoolean();
             }
         }
+/*
+for (boolean[] x:hhh) {
+for (boolean y:x) {
+y = ran.nextBoolean();
+}
+}
+*/
         return hhh;
     }
-    public static void mutation(boolean[][] gene) {//变异方法（未完成）
-
+    public static void mutation(boolean[][] gene) {//变异方法
+        for(int i = 0;i<gene.length;i++){
+            for(int j = 0;j<gene[0].length;j++)
+                if(ran.nextDouble()<mutation)
+                    gene[i][j] ^= true;
+        }
     }
     public static void die(Individual a){//自杀
-        a = null;
+        pop.setOfIndividual.remove(a);
     }//清除个体
 }

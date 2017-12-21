@@ -20,4 +20,7 @@ public class Event {
 
         return newSon;
     }
+    public void die(Individual a){
+        pop.setOfIndividual.remove(a);
+    }
 }

@@ -20,8 +20,11 @@ public class Main {
          }
          return h;
     }
+
     public static void main(String args[]){//暂时没卵用的主方法
-       Individual setOfIndividual[] = new Individual[100];
+       //Individual setOfIndividual[] = new Individual[100];
        Environment env1 = new Environment();
+
+
     }
 }
