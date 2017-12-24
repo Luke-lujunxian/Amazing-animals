@@ -2,6 +2,9 @@ public class Main {
      public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而暂时是空的
         int i=0;
         int j[]=decode(a.gene);
+        for(Individual indi : pop.population){
+
+        }
         //compute fitness
      }
      public static int[] decode(boolean[][] a) {//额……大概是解码
@@ -20,10 +23,11 @@ public class Main {
          }
          return h;
     }
+    static Population pop = new Population(100);
 
     public static void main(String args[]){//暂时没卵用的主方法
        //Individual setOfIndividual[] = new Individual[100];
-       Environment env1 = new Environment();
+       Environment env = new Environment();
 
 
     }

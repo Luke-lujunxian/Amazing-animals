@@ -21,6 +21,6 @@ public class Event {
         return newSon;
     }
     public void die(Individual a){
-        pop.setOfIndividual.remove(a);
+        Population.setOfIndividual.remove(a);
     }
 }

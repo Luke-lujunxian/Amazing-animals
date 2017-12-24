@@ -60,6 +60,6 @@ y = ran.nextBoolean();
         }
     }
     public static void die(Individual a){//自杀
-        pop.setOfIndividual.remove(a);
+        Population.setOfIndividual.remove(a);
     }//清除个体
 }
