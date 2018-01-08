@@ -12,6 +12,7 @@ public class Event {
             else
                 newSon.gene[i]=b.gene[i];
         }
+
         /*对每个基因随机选择组合*/
 
         //废弃代码

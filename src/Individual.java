@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Individual {
+public class Individual extends individual_prototype{
     public boolean gene[][] = new boolean[trait_num][len];
     /*第一维度为每一种性状
     * [n][0]表示这种形状是否表达
@@ -33,7 +33,6 @@ public class Individual {
     public static double mutation=0.01;//变异几率
     public double fitness=0;//此个体的适应度
     static Random ran=new Random();
-
     public static boolean[][] getGene() {//随机生成基因
         boolean hhh[][]=new boolean[Individual.trait_num][Individual.len];
 

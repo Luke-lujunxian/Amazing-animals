@@ -57,10 +57,10 @@ public class Environment {
         this.food = food;
     }
     Environment(){//初始化环境（默认）
-        this.temperature = 20;
-        this.humidity = 40;
+        this.temperature = 3;//20
+        this.humidity = 2;//40
         this.terrain = 2;
-        this. oxygenLevel = 20;
+        this. oxygenLevel = 3;//20
         this.food = 8;
     }
 }
