@@ -53,14 +53,14 @@ public class Environment {
         this.temperature = temperature;
         this.humidity = humidity;
         this.terrain = terrain;
-        this. oxygenLevel = oxygenLevel;
+        this.oxygenLevel = oxygenLevel;
         this.food = food;
     }
     Environment(){//初始化环境（默认）
         this.temperature = 3;//20
         this.humidity = 2;//40
         this.terrain = 2;
-        this. oxygenLevel = 3;//20
+        this.oxygenLevel = 3;//20
         this.food = 8;
     }
 }
