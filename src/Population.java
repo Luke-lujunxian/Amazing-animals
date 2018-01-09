@@ -3,7 +3,7 @@ import java.util.Vector;
 public class Population {
     static Vector setOfIndividual = new Vector();
 
-    public Individual population[];
+    //public Individual population[];
     public static int number;//种群数量
     public Population(int num) {//初始化种群
         /*number=num;
