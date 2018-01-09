@@ -1,6 +1,6 @@
 public class Event {
 
-    public Individual reproduce(Individual a, Individual b){//繁殖方法：杂交两个个体
+    static public Individual reproduce(Individual a, Individual b){//繁殖方法：杂交两个个体
         //int swichPoint = (int)(Math.random()*20);
         Individual newDlt=new Individual();
         Individual newSon = new Individual(newDlt.getGene());
@@ -18,7 +18,7 @@ public class Event {
         //废弃代码
         //System.arraycopy(a.gene,0,newSon.gene,0,swichPoint);
         //System.arraycopy(b.gene,swichPoint,newSon.gene,swichPoint,b.gene.length - swichPoint-1);
-
+        newSon.mutation();
         return newSon;
     }
     public void die(Individual a){

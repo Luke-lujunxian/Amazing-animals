@@ -1,7 +1,6 @@
 public class Main {
      public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而暂时是空的
             int j[]=decode(a.gene);
-            Environment dlt=new Environment();
             a.fitness = 1-Math.abs(j[0]-dlt.getOxygenLevel())*0.005-Math.abs(j[1]-dlt.getHumidity())*0.01-Math.abs(j[2]-dlt.getFood())*0.1-Math.abs(j[3]-dlt.getTemperature())*0.01+j[4]+j[5];
      }
      public static int[] decode(boolean[][] a) {//额……大概是解码
@@ -20,16 +19,58 @@ public class Main {
          }
          return h;
     }
-    static Population pop;
-
+    private static Population pop;
+    private static Environment dlt;
     public static void main(String args[]){//暂时没卵用的主方法
-
-       //Individual setOfIndividual[] = new Individual[100];
-        Environment env = new Environment();
+        //Set up population
+        dlt=new Environment();
         pop = new Population(100);
-        for (int i = 0;i<pop.setOfIndividual.size();i++){
-            fitness((Individual) pop.setOfIndividual.elementAt(i));
+        double lastBestFitness = 0.0;
+        while(true){
+
+            //计算适应度
+            for (int i = 0; i< Population.setOfIndividual.size(); i++){
+                fitness((Individual) Population.setOfIndividual.get(i));
+            }
+            Individual  temp = (Individual)(Population.setOfIndividual.firstElement());
+
+            /*
+            此处应有排序方法
+            由大到小
+            */
+
+            //结束检测：当最大适应度变化小于0.1时终止（需要确认）
+            if(temp.getFitness()-lastBestFitness<0.1)
+                if(temp.getFitness()<lastBestFitness) {
+                    System.out.println("适应度出现减少");
+                    lastBestFitness = temp.getFitness();
+                }
+                else{
+                    System.out.println("流程结束");
+                    break;
+                }
+            else
+                lastBestFitness = temp.getFitness();
+
+
+            //处♂刑所有弱子个体
+            for(int i = Population.setOfIndividual.capacity()/2 -1; i< Population.setOfIndividual.capacity(); i++)
+                Population.setOfIndividual.remove(i);
+
+            //繁殖
+            int reproduceSize = Population.setOfIndividual.size();
+            while(Population.setOfIndividual.size()<= Population.setOfIndividual.capacity()){
+                for(int i = 0;i<reproduceSize-1;i+=2){
+                    Population.setOfIndividual.add(Event.reproduce((Individual) Population.setOfIndividual.get(i),(Individual) Population.setOfIndividual.get(i+1)));
+                }
+                reproduceSize /= 2 ;
+                if(reproduceSize <= 1)//解决剩下1个个体无法繁殖的问题
+                    Population.setOfIndividual.add(Event.reproduce((Individual) Population.setOfIndividual.get(0),(Individual) Population.setOfIndividual.get(1)));
+
+            }
+
         }
+
 
     }
 }

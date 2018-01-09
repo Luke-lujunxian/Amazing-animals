@@ -51,11 +51,11 @@ y = ran.nextBoolean();
 */
         return hhh;
     }
-    public void mutation(boolean[][] gene) {//变异方法
-        for(int i = 0;i<gene.length;i++){
-            for(int j = 0;j<gene[0].length;j++)
+    public void mutation(/*boolean[][] gene*/) {//变异方法
+        for(int i = 0;i<this.gene.length;i++){
+            for(int j = 0;j<this.gene[0].length;j++)
                 if(ran.nextDouble()<mutation)
-                    gene[i][j] ^= true;
+                    this.gene[i][j] ^= true;
         }
     }
     public void die(Individual a){//自杀
