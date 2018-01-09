@@ -2,8 +2,8 @@ public class Event {
 
     public Individual reproduce(Individual a, Individual b){//繁殖方法：杂交两个个体
         //int swichPoint = (int)(Math.random()*20);
-
-        Individual newSon = new Individual(Individual.getGene());
+        Individual newDlt=new Individual();
+        Individual newSon = new Individual(newDlt.getGene());
 
         for  (int i = 0; i<newSon.gene.length; i++){
            double choose = Math.random();

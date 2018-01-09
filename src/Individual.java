@@ -33,7 +33,7 @@ public class Individual extends individual_prototype{
     public static double mutation=0.01;//变异几率
     public double fitness=0;//此个体的适应度
     static Random ran=new Random();
-    public static boolean[][] getGene() {//随机生成基因
+    public boolean[][] getGene() {//随机生成基因
         boolean hhh[][]=new boolean[Individual.trait_num][Individual.len];
 
 
@@ -51,14 +51,14 @@ y = ran.nextBoolean();
 */
         return hhh;
     }
-    public static void mutation(boolean[][] gene) {//变异方法
+    public void mutation(boolean[][] gene) {//变异方法
         for(int i = 0;i<gene.length;i++){
             for(int j = 0;j<gene[0].length;j++)
                 if(ran.nextDouble()<mutation)
                     gene[i][j] ^= true;
         }
     }
-    public static void die(Individual a){//自杀
+    public void die(Individual a){//自杀
         Population.setOfIndividual.remove(a);
     }//清除个体
 }
