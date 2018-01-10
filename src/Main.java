@@ -33,7 +33,15 @@ public class Main {
                 fitness((Individual) Population.setOfIndividual.get(i));
             }
             Individual  temp = (Individual)(Population.setOfIndividual.firstElement());
-
+            Individual[] beforeSort=new Individual[Population.setOfIndividual.size()];
+            for(int i=0;i<Population.setOfIndividual.size();i++){
+                beforeSort[i]=(Individual) Population.setOfIndividual.get(i);
+            }
+            Individual[] afterSort=new Individual[Population.setOfIndividual.size()];
+            Quick.sort(beforeSort,0,Population.setOfIndividual.size()-1,afterSort);
+            for(int j=0;j<100;j++){
+                System.out.println(afterSort[j].fitness);
+            }
             /*
             此处应有排序方法
             由大到小
