@@ -1,5 +1,5 @@
 public class Main {
-     public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而暂时是空的
+     public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而不是空的
             int j[]=decode(a.gene);
             a.fitness = 1-Math.abs(j[0]-dlt.getOxygenLevel())*0.005-Math.abs(j[1]-dlt.getHumidity())*0.01-Math.abs(j[2]-dlt.getFood())*0.1-Math.abs(j[3]-dlt.getTemperature())*0.01+j[4]+j[5];
      }
@@ -23,6 +23,7 @@ public class Main {
     private static Environment dlt;
     public static void main(String args[]){//暂时没卵用的主方法
         //Set up population
+        Fenestra allah = new Fenestra();
         dlt=new Environment();
         pop = new Population(100);
         double lastBestFitness = 0.0;
@@ -32,6 +33,7 @@ public class Main {
             for (int i = 0; i< Population.setOfIndividual.size(); i++){
                 fitness((Individual) Population.setOfIndividual.get(i));
             }
+<<<<<<< HEAD
             Individual  temp = (Individual)(Population.setOfIndividual.firstElement());
             Individual[] beforeSort=new Individual[Population.setOfIndividual.size()];
             for(int i=0;i<Population.setOfIndividual.size();i++){
@@ -42,27 +44,31 @@ public class Main {
             for(int j=0;j<100;j++){
                 System.out.println(afterSort[j].fitness);
             }
+=======
+            Individual  Best = (Individual)(Population.setOfIndividual.firstElement());
+
+>>>>>>> 07186acc76e6bff9af4752520bcce072846cda3e
             /*
             此处应有排序方法
             由大到小
             */
 
             //结束检测：当最大适应度变化小于0.1时终止（需要确认）
-            if(temp.getFitness()-lastBestFitness<0.1)
-                if(temp.getFitness()<lastBestFitness) {
+            if(Best.getFitness()-lastBestFitness<0.1)
+                if(Best.getFitness()<lastBestFitness) {
                     System.out.println("适应度出现减少");
-                    lastBestFitness = temp.getFitness();
+                    lastBestFitness = Best.getFitness();
                 }
                 else{
                     System.out.println("流程结束");
                     break;
                 }
             else
-                lastBestFitness = temp.getFitness();
+                lastBestFitness = Best.getFitness();
 
 
             //处♂刑所有弱子个体
-            for(int i = Population.setOfIndividual.capacity()/2 -1; i< Population.setOfIndividual.capacity(); i++)
+            for(int i = Population.setOfIndividual.capacity()/2 -1; i< Population.setOfIndividual.size(); )
                 Population.setOfIndividual.remove(i);
 
             //繁殖
