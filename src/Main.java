@@ -32,7 +32,7 @@ public class Main {
             for (int i = 0; i< Population.setOfIndividual.size(); i++){
                 fitness((Individual) Population.setOfIndividual.get(i));
             }
-            Individual  temp = (Individual)(Population.setOfIndividual.firstElement());
+            Individual  Best = (Individual)(Population.setOfIndividual.firstElement());
 
             /*
             此处应有排序方法
@@ -40,21 +40,21 @@ public class Main {
             */
 
             //结束检测：当最大适应度变化小于0.1时终止（需要确认）
-            if(temp.getFitness()-lastBestFitness<0.1)
-                if(temp.getFitness()<lastBestFitness) {
+            if(Best.getFitness()-lastBestFitness<0.1)
+                if(Best.getFitness()<lastBestFitness) {
                     System.out.println("适应度出现减少");
-                    lastBestFitness = temp.getFitness();
+                    lastBestFitness = Best.getFitness();
                 }
                 else{
                     System.out.println("流程结束");
                     break;
                 }
             else
-                lastBestFitness = temp.getFitness();
+                lastBestFitness = Best.getFitness();
 
 
             //处♂刑所有弱子个体
-            for(int i = Population.setOfIndividual.capacity()/2 -1; i< Population.setOfIndividual.capacity(); i++)
+            for(int i = Population.setOfIndividual.capacity()/2 -1; i< Population.setOfIndividual.size(); )
                 Population.setOfIndividual.remove(i);
 
             //繁殖

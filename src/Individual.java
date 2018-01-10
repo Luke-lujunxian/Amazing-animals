@@ -35,8 +35,6 @@ public class Individual extends individual_prototype{
     static Random ran=new Random();
     public boolean[][] getGene() {//随机生成基因
         boolean hhh[][]=new boolean[Individual.trait_num][Individual.len];
-
-
         for(int i = 0;i<hhh.length;i++){
             for (int j = 0; j<hhh[0].length;j++){
                     hhh[i][j]=ran.nextBoolean();
