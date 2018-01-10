@@ -1,5 +1,5 @@
 public class Main {
-     public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而暂时是空的
+     public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而不是空的
             int j[]=decode(a.gene);
             a.fitness = 1-Math.abs(j[0]-dlt.getOxygenLevel())*0.005-Math.abs(j[1]-dlt.getHumidity())*0.01-Math.abs(j[2]-dlt.getFood())*0.1-Math.abs(j[3]-dlt.getTemperature())*0.01+j[4]+j[5];
      }
