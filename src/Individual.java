@@ -12,7 +12,9 @@ public class Individual extends individual_prototype{
     public Individual(boolean[][] gene) {
         this.gene = gene;
     }
-    public Individual(){}
+    public Individual(){
+        gene = getGene();
+    }
     //get、set方法
 
     public static double getMutation() {
@@ -40,13 +42,6 @@ public class Individual extends individual_prototype{
                     hhh[i][j]=ran.nextBoolean();
             }
         }
-/*
-for (boolean[] x:hhh) {
-for (boolean y:x) {
-y = ran.nextBoolean();
-}
-}
-*/
         return hhh;
     }
     public void mutation(/*boolean[][] gene*/) {//变异方法
