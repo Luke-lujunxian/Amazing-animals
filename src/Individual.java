@@ -56,7 +56,7 @@ y = ran.nextBoolean();
                     this.gene[i][j] ^= true;
         }
     }
-    public void die(Individual a){//自杀
+    public void die(individual_proto a){//自杀
         Population.setOfIndividual.remove(a);
     }//清除个体
 }
