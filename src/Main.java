@@ -61,17 +61,20 @@ public class Main {
                     System.out.println("**适应度出现减少");
                     lastBestFitness = Best.getFitness();
                     System.out.println("一代结束————————————");
+                     EndFenestra aallsah = new EndFenestra("**适应度出现减少","一代结束"); 
+                     
 
                 }
                 else{
 
                     System.out.println("流程结束");
-                    EndFenestra aallah = new EndFenestra(); //结束
+                    EndFenestra aallah = new EndFenestra("流程结束"); //结束
                     break;
                 }
             else{
                 lastBestFitness = Best.getFitness();
                 System.out.println("一代结束————————————");
+                EndFenestra aawllsah = new EndFenestra("流程进行中","一代结束"); 
             }
 
 
