@@ -61,7 +61,7 @@ public class Main {
                     lastBestFitness = Best.getFitness();
                 }
                 else{
-                    System.out.println("流程结束");
+                    EndFenestra aallah = new EndFenestra(); //结束
                     break;
                 }
             else
