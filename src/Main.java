@@ -1,9 +1,9 @@
 public class Main {
-     public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而不是空的
+     public static void fitness(Individual a) {//适应度函数
             int j[]=decode(a.gene);
             a.fitness = 1-Math.abs(j[0]-dlt.getOxygenLevel())*0.005-Math.abs(j[1]-dlt.getHumidity())*0.01-Math.abs(j[2]-dlt.getFood())*0.1-Math.abs(j[3]-dlt.getTemperature())*0.01+0.1*j[4]+0.1*j[5];
      }
-     public static int[] decode(boolean[][] a) {//额……大概是解码
+     public static int[] decode(boolean[][] a) {//解码
          int[] h=new int[a.length];
          for(int i=0;i<a.length;i++){
              int j=0;
@@ -22,7 +22,7 @@ public class Main {
     }
     private static Population pop;
     private static Environment dlt;
-    public static void main(String args[]){//暂时没卵用的主方法
+    public static void main(String args[]){//主方法
         //Set up population
         dlt=new Environment();
         Fenestra allah = new Fenestra(dlt);
@@ -39,7 +39,7 @@ public class Main {
             }
 
             //排序
-            Individual  temp = (Individual)(Population.setOfIndividual.firstElement());
+            //Individual  temp = (Individual)(Population.setOfIndividual.firstElement());
             Individual[] beforeSort=new Individual[Population.setOfIndividual.size()];
             for(int i=0;i<Population.setOfIndividual.size();i++){
                 beforeSort[i]=(Individual) Population.setOfIndividual.get(i);
@@ -49,14 +49,13 @@ public class Main {
             for(int j=0;j<afterSort.length;j++){
                 System.out.println(afterSort[j].fitness);
             }
-            Individual  Best = (Individual)(Population.setOfIndividual.firstElement());
+            //赋值给原Vector
+            Population.setOfIndividual.clear();
+            for (Individual a : afterSort)
+                Population.setOfIndividual.add(a);
 
-            /*
-            此处应有排序方法
-            由大到小
-            */
-
-            //结束检测：当最大适应度变化小于0.1时终止（需要确认）
+            //结束检测：当最大适应度变化小于0.01时终止（需要确认）
+            Individual  Best = (Individual)(Population.setOfIndividual.lastElement());
             if(Best.getFitness()-lastBestFitness<0.001)
                 if(Best.getFitness()<lastBestFitness) {
                     System.out.println("**适应度出现减少");
@@ -78,17 +77,17 @@ public class Main {
 
             //处♂刑所有弱子个体
             for(int i = Population.setOfIndividual.capacity()/2 -1; i< Population.setOfIndividual.size(); )
-                Population.setOfIndividual.remove(i);
+                Population.setOfIndividual.remove(0);
 
             //繁殖
             int reproduceSize = Population.setOfIndividual.size();
-            while(Population.setOfIndividual.size()< Population.setOfIndividual.capacity()){
+            while(Population.setOfIndividual.size() < Population.setOfIndividual.capacity() && reproduceSize!=0){
                 for(int i = 0;i<reproduceSize-1;i+=2){
                     Population.setOfIndividual.add(Event.reproduce((Individual) Population.setOfIndividual.get(i),(Individual) Population.setOfIndividual.get(i+1)));
                 }
                 reproduceSize /= 2 ;
                 if(reproduceSize <= 1)//解决剩下1个个体无法繁殖的问题
-                    Population.setOfIndividual.add(Event.reproduce((Individual) Population.setOfIndividual.get(0),(Individual) Population.setOfIndividual.get(1)));
+                    Population.setOfIndividual.add(Event.reproduce((Individual) Population.setOfIndividual.get(Population.setOfIndividual.size()-1),(Individual) Population.setOfIndividual.get(Population.setOfIndividual.size()-2)));
 
             }
 
