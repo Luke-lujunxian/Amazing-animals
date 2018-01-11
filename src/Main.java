@@ -1,7 +1,3 @@
-import main.EndFenestra;
-import main.Environment;
-import main.Fenestra;
-
 public class Main {
      public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而不是空的
             int j[]=decode(a.gene);
