@@ -1,3 +1,7 @@
+import main.EndFenestra;
+import main.Environment;
+import main.Fenestra;
+
 public class Main {
      public static void fitness(Individual a) {//一个长得像适应度函数的东西，然而不是空的
             int j[]=decode(a.gene);
@@ -23,8 +27,12 @@ public class Main {
     private static Environment dlt;
     public static void main(String args[]){//暂时没卵用的主方法
         //Set up population
-        Fenestra allah = new Fenestra();
+       
         dlt=new Environment();
+        Fenestra allah = new Fenestra(dlt);
+        while(Fenestra.connection==0)
+        {//等待窗口执行     
+        }
         pop = new Population(100);
         double lastBestFitness = 0.0;
         while(true){
@@ -57,7 +65,7 @@ public class Main {
                     lastBestFitness = Best.getFitness();
                 }
                 else{
-                    System.out.println("流程结束");
+                    EndFenestra aallah = new EndFenestra(); //结束
                     break;
                 }
             else
