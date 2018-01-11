@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 public class Fenestra {
+    public static int connection = 0;
     private JFrame bufo;
     private static JButton b1;
     private static JButton b2;
@@ -40,6 +41,7 @@ public class Fenestra {
         public void mouseClicked(MouseEvent e) {
             System.out.print("dlt真大佬");
             bufo.dispose();
+            Fenestra.connection = 1;
         }
     });
     b1.addMouseListener(new MouseAdapter() {

@@ -26,6 +26,9 @@ public class Main {
         //Set up population
         dlt=new Environment();
         Fenestra allah = new Fenestra(dlt);
+        while(Fenestra.connection==0)
+        {//等待窗口执行     
+        }
         pop = new Population(100);
         double lastBestFitness = 0.0;
         while(true){
@@ -62,6 +65,7 @@ public class Main {
 
                 }
                 else{
+
                     System.out.println("流程结束");
                     EndFenestra aallah = new EndFenestra(); //结束
                     break;
