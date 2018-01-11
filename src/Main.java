@@ -34,7 +34,6 @@ public class Main {
             for (int i = 0; i< Population.setOfIndividual.size(); i++){
                 fitness((Individual) Population.setOfIndividual.get(i));
             }
-<<<<<<< HEAD
             Individual  temp = (Individual)(Population.setOfIndividual.firstElement());
             Individual[] beforeSort=new Individual[Population.setOfIndividual.size()];
             for(int i=0;i<Population.setOfIndividual.size();i++){
@@ -45,10 +44,8 @@ public class Main {
             for(int j=0;j<100;j++){
                 System.out.println(afterSort[j].fitness);
             }
-=======
             Individual  Best = (Individual)(Population.setOfIndividual.firstElement());
 
->>>>>>> 07186acc76e6bff9af4752520bcce072846cda3e
             /*
             此处应有排序方法
             由大到小
