@@ -23,9 +23,8 @@ public class Main {
     private static Environment dlt;
     public static void main(String args[]){//暂时没卵用的主方法
         //Set up population
-       
+        Fenestra allah = new Fenestra();
         dlt=new Environment();
-        Fenestra allah = new Fenestra(dlt);
         pop = new Population(100);
         double lastBestFitness = 0.0;
         while(true){
