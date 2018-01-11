@@ -10,8 +10,8 @@ public class Fenestra {
     private static JButton b5;
     private static JButton b6;
     private static JLabel dalao;
-    public Fenestra() {
-        Environment io = new Environment();
+    public Fenestra(Environment imput) {
+        Environment io = imput;
     b1 = new JButton("温度"+io.temperature);  
     b2 = new JButton("湿度"+io.humidity);
     b3 = new JButton("地形"+io.terrain);
