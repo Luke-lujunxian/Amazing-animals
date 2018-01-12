@@ -5,8 +5,8 @@ public class EndFenestra {
     private JFrame bufo;  
     private static JButton b6;
     private static JButton b5;
-    public EndFenestra(String n) {
-    b6 = new JButton("退出");
+    public EndFenestra(String n,double k,int b) {
+    b6 = new JButton("最终基因型:"+b+"  适应度结果为："+k+"  退出");
     bufo=new JFrame(n);
     bufo.setSize(400,400);
     bufo.setLayout(new FlowLayout());
@@ -17,7 +17,7 @@ public class EndFenestra {
     bufo.setDefaultCloseOperation(bufo.EXIT_ON_CLOSE);
     b6.addMouseListener(new MouseAdapter() {
         public void mouseClicked(MouseEvent e) {
-            System.out.print("神奇动物已经完蛋了");
+        
             bufo.dispose();
         }
     });
@@ -36,7 +36,7 @@ public class EndFenestra {
     bufo.setDefaultCloseOperation(bufo.EXIT_ON_CLOSE);
     b6.addMouseListener(new MouseAdapter() {
         public void mouseClicked(MouseEvent e) {
-            System.out.print("神奇动物已经完蛋了");
+    
             bufo.dispose();
         }
     });
