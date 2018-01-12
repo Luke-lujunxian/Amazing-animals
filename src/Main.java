@@ -26,9 +26,9 @@ public class Main {
         //Set up population
         dlt=new Environment();
         Fenestra allah = new Fenestra(dlt);
-        while(Fenestra.connection==0)
-        {//等待窗口执行     
-        }
+        while(Fenestra.connection==0){
+       }
+        System.out.print("djhbsad");
         pop = new Population(100);
         double lastBestFitness = 0.0;
         while(true){
@@ -62,17 +62,33 @@ public class Main {
                     lastBestFitness = Best.getFitness();
                     System.out.println("一代结束————————————\n");
 
+                    System.out.println("一代结束————————————");
+                     EndFenestra aallsah = new EndFenestra("**适应度出现减少","一代结束"); 
+                     
 
                 }
                 else{
-
+                    boolean[][] a=Best.getGene();
+                    int[] bestGene=new int[a.length];
+                    for(int i=0;i<a.length;i++) {
+                        if(a[i][0]) bestGene[i]+=1;
+                        if(a[i][1]) bestGene[i]+=2;
+                        if(a[i][2]) bestGene[i]+=4;
+                    }
+                    int b=0;
+                    for(int i:bestGene) b=b*10+i;
+                    System.out.print(b);
+                    
+                    double z = Best.getFitness();
                     System.out.println("流程结束");
-                    EndFenestra aallah = new EndFenestra(); //结束
+                    EndFenestra aallah = new EndFenestra("流程结束",z,b); //结束
                     break;
                 }
             else{
                 lastBestFitness = Best.getFitness();
                 System.out.println("一代结束————————————\n");
+                System.out.println("一代结束————————————");
+                EndFenestra aawllsah = new EndFenestra("流程进行中","一代结束"); 
             }
 
 
