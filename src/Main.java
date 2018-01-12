@@ -1,34 +1,30 @@
 public class Main {
      public static void fitness(Individual a) {//适应度函数
             int j[]=decode(a.gene);
-            a.fitness = 1-Math.abs(j[0]-dlt.getOxygenLevel())*0.005-Math.abs(j[1]-dlt.getHumidity())*0.01-Math.abs(j[2]-dlt.getFood())*0.1-Math.abs(j[3]-dlt.getTemperature())*0.01+0.1*j[4]+0.1*j[5];
+            a.fitness = 1-Math.abs(Environment.need_oxy_all[j[0]] - Environment.env_oxy_all[dlt.getOxygenLevel()])*0.005-Math.abs(Environment.need_moi_all[j[1]]-Environment.env_moi_all[dlt.getHumidity()])*0.01-Math.abs(j[2]-dlt.getFood())*0.1-Math.abs(j[3]-dlt.getTemperature())*0.01+0.01*j[4]+0.01*j[5];
+
      }
      public static int[] decode(boolean[][] a) {//解码
          int[] h=new int[a.length];
          for(int i=0;i<a.length;i++){
-             int j=0;
-             for(int k=0;k<a[i].length;k++) if(a[i][k]) if(k>0) j+=2*k; else j+=1;
-             switch (i) {
-                 case 0:
-                     continue;
-                 case 1:
-                    h[i]=j*10;
-                    continue;
-                 default:
-                     h[i]=j+1;
+             for(int j=0;j<a[i].length;j++) {
+                 if(a[i][j]) {
+                     if(j==0) h[i]+=1;
+                     else h[i]+=j*2;
+                 }
              }
          }
          return h;
     }
     private static Population pop;
     private static Environment dlt;
+    public static int generationNumber=0;
     public static void main(String args[]){//主方法
         //Set up population
         dlt=new Environment();
         Fenestra allah = new Fenestra(dlt);
         while(Fenestra.connection==0){
        }
-        System.out.print("djhbsad");
         pop = new Population(100);
         double lastBestFitness = 0.0;
         while(true){
@@ -60,25 +56,30 @@ public class Main {
                 if(Best.getFitness()<lastBestFitness) {
                     System.out.println("**适应度出现减少");
                     lastBestFitness = Best.getFitness();
-                    System.out.println("一代结束————————————\n");
-
-                    System.out.println("一代结束————————————");
+                    generationNumber++;
+                    System.out.println("第"+generationNumber+"代结束————————————\n");
                      EndFenestra aallsah = new EndFenestra("**适应度出现减少","一代结束"); 
                      
 
                 }
                 else{
-                    boolean[][] a=Best.getGene();
-                    int[] bestGene=new int[a.length];
-                    for(int i=0;i<a.length;i++) {
-                        if(a[i][0]) bestGene[i]+=1;
-                        if(a[i][1]) bestGene[i]+=2;
-                        if(a[i][2]) bestGene[i]+=4;
-                    }
+                    int[] bestGene=Main.decode(Best.getGene());
                     int b=0;
                     for(int i:bestGene) b=b*10+i;
-                    System.out.print(b);
-                    
+                    generationNumber++;
+                    System.out.println("第"+generationNumber+"代结束————————————\n");
+                    System.out.println("最好的基因："+b);
+                    System.out.println();
+
+
+                    System.out.println("需氧量："+Environment.need_oxy_all[bestGene[0]]);
+                    System.out.println("湿度要求："+Environment.need_moi_all[bestGene[1]]);
+                    System.out.println("食物需求："+Environment.need_food_all[bestGene[2]]);
+                    System.out.println("温度需求："+Environment.need_tem_first_all[bestGene[3]]+"-"+Environment.need_tem_second_all[bestGene[3]]);
+                    System.out.println("速度："+bestGene[4]);
+                    System.out.println("耐力："+bestGene[5]);
+
+                    System.out.println();
                     double z = Best.getFitness();
                     System.out.println("流程结束");
                     EndFenestra aallah = new EndFenestra("流程结束",z,b); //结束
@@ -86,8 +87,8 @@ public class Main {
                 }
             else{
                 lastBestFitness = Best.getFitness();
-                System.out.println("一代结束————————————\n");
-                System.out.println("一代结束————————————");
+                generationNumber++;
+                System.out.println("第"+generationNumber+"代结束————————————\n");
                 EndFenestra aawllsah = new EndFenestra("流程进行中","一代结束"); 
             }
 

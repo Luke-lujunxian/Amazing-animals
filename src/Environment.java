@@ -6,7 +6,7 @@ public class Environment {
     }
 
     public void setTemperature(int temperature) {
-        if(temperature>=-60&&temperature<=100)this.temperature = temperature;
+        if(temperature>=0&&temperature<=5)this.temperature = temperature;
     }
 
     public int getHumidity() {
@@ -14,7 +14,7 @@ public class Environment {
     }
 
     public void setHumidity(int humidity) {
-       if(humidity>=0&&humidity<=100) this.humidity = humidity;
+       if(humidity>=0&&humidity<=4) this.humidity = humidity;
     }
 
     public int getTerrain() {
@@ -30,7 +30,7 @@ public class Environment {
     }
 
     public void setOxygenLevel(int oxygenLevel) {
-        if(oxygenLevel>=0 && oxygenLevel<=40)this.oxygenLevel = oxygenLevel;
+        if(oxygenLevel>=0 && oxygenLevel<=5)this.oxygenLevel = oxygenLevel;
     }
 
     public int getFood() {
@@ -48,6 +48,16 @@ public class Environment {
     int terrain; // 1- water, 2-land, 3-water&land
     int oxygenLevel;
     int food;//[to be finish]
+    public static int need_oxy_all[]={0,10,20,30,40,50,60,70};
+    public static int need_moi_all[]={0,10,20,30,40,50,60,70};
+    public static String need_food_all[]={"单一丰富","单一还行","单一稀少","单一缺乏","多样缺乏","多样稀少","多样还行","多样丰富"};
+    public static int need_tem_first_all[]={-60,-30,0,20,30,40,45,50};
+    public static int need_tem_second_all[]={-30,0,20,30,40,45,50,100};
+
+    public static int env_oxy_all[]={10,20,30,40};
+    public static int env_moi_all[]={40,80,100};
+    public static int env_tem_all[]={-60,0,20,40,100};
+    public static String env_food_all[]={"单一丰富","单一还行","单一稀少","单一缺乏","多样缺乏","多样稀少","多样还行","多样丰富"};
 
     Environment(int temperature, int humidity, int terrain, int oxygenLevel, int food){//初始化环境（有参数）
         this.temperature = temperature;
