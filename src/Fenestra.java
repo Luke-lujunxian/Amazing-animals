@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 public class Fenestra {
-    public static int connection = 0;
+    public static volatile int connection = 0;
     private JFrame bufo;
     private static JButton b1;
     private static JButton b2;
@@ -25,7 +25,6 @@ public class Fenestra {
     bufo.setLayout(new FlowLayout());
     dalao = new JLabel(" ");
     dalao.setText("真大佬");
-    dalao.setLocation(300, 300);
     dalao.setSize(40, 10);
     bufo.add(b1);        
     bufo.add(b2);
@@ -36,12 +35,14 @@ public class Fenestra {
     b6.setSize(150,50);
     bufo.setBackground(Color.green);
     bufo.setVisible(true);
+    dalao.setVisible(true);
     bufo.setDefaultCloseOperation(bufo.EXIT_ON_CLOSE);
     b6.addMouseListener(new MouseAdapter() {
         public void mouseClicked(MouseEvent e) {
-            System.out.print("dlt真大佬");
+
             bufo.dispose();
             Fenestra.connection = 1;
+            System.out.print("dlt真大佬");
         }
     });
     b1.addMouseListener(new MouseAdapter() {
