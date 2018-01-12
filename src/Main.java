@@ -74,7 +74,7 @@ public class Main {
                         if(a[i][2]) bestGene[i]+=4;
                     }
                     int b=0;
-                    for(int i:bestGene) b+=i;
+                    for(int i:bestGene) b=b*10+i;
                     System.out.print(b);
                     
                     double z = Best.getFitness();
