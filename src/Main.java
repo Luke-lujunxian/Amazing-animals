@@ -56,11 +56,12 @@ public class Main {
 
             //结束检测：当最大适应度变化小于0.01时终止（需要确认）
             Individual  Best = (Individual)(Population.setOfIndividual.lastElement());
-            if(Best.getFitness()-lastBestFitness<0.001)
+            if(Best.getFitness()-lastBestFitness<0.01)
                 if(Best.getFitness()<lastBestFitness) {
                     System.out.println("**适应度出现减少");
                     lastBestFitness = Best.getFitness();
-                    System.out.println("一代结束————————————");
+                    System.out.println("一代结束————————————\n");
+
 
                 }
                 else{
@@ -71,7 +72,7 @@ public class Main {
                 }
             else{
                 lastBestFitness = Best.getFitness();
-                System.out.println("一代结束————————————");
+                System.out.println("一代结束————————————\n");
             }
 
 
