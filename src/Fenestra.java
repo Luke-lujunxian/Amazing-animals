@@ -1,6 +1,9 @@
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 public class Fenestra {
     public static volatile int connection = 0;
     private JFrame bufo;
@@ -42,7 +45,6 @@ public class Fenestra {
 
             bufo.dispose();
             Fenestra.connection = 1;
-            System.out.print("dlt真大佬");
         }
     });
     b1.addMouseListener(new MouseAdapter() {
