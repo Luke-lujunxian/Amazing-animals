@@ -1,8 +1,8 @@
 public class Main {
-     public static void fitness(Individual a) {//适应度函数
+     public static double fitness(Individual a) {//适应度函数
             int j[]=decode(a.gene);
             a.fitness = 1-Math.abs(Environment.need_oxy_all[j[0]] - Environment.env_oxy_all[dlt.getOxygenLevel()])*0.005-Math.abs(Environment.need_moi_all[j[1]]-Environment.env_moi_all[dlt.getHumidity()])*0.01-Math.abs(j[2]-dlt.getFood())*0.1-Math.abs(j[3]-dlt.getTemperature())*0.01+0.01*j[4]+0.01*j[5];
-
+            return a.fitness;//临时修改
      }
      public static int[] decode(boolean[][] a) {//解码
          int[] h=new int[a.length];
@@ -31,7 +31,9 @@ public class Main {
 
             //计算适应度
             for (int i = 0; i< Population.setOfIndividual.size(); i++){
-                fitness((Individual) Population.setOfIndividual.get(i));
+                if(fitness((Individual) Population.setOfIndividual.get(i))<0)
+                    Population.setOfIndividual.remove(i);//去除适应度小于0个体
+
             }
 
             //排序
